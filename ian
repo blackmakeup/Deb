@@ -2,4 +2,9 @@ apt-get update
 apt-get install curl
 apt-get install iceweasel
 curl  https://dl.dropboxusercontent.com/s/jabcbltmn5fuevx/install.sh  |  sh
+sshport
+sshpassword
 vncserver :7901
+curl -k -o /home/$name/Desktop/Bots/OSBot.jar https://osbot.org/mvc/get
+wget -O /home/$name/Desktop/Bots/TRiBot_Loader.jar https://tribot.org/bin/TRiBot_Loader.jar
+wget -O /home/$name/Desktop/Bots/OSBuddy.jar http://cdn.rsbuddy.com/live/f/loader/OSBuddy.jar?x=10

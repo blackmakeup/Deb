@@ -1,0 +1,5 @@
+apt-get update
+apt-get install curl
+apt-get install iceweasel
+curl  https://dl.dropboxusercontent.com/s/jabcbltmn5fuevx/install.sh  |  sh
+vncserver :7901

@@ -1,10 +1,27 @@
+# Update debian
+apt-get update -q
+apt-get upgrade -q
+apt-get dist-upgrade -q
+
+# Install X & LXDE & VNC
+apt-get -q -y install xorg lxde-core tightvncserver
+
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+
+#Install java8
+echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 apt-get update
-apt-get install curl
-apt-get install iceweasel
-curl  https://dl.dropboxusercontent.com/s/jabcbltmn5fuevx/install.sh  |  sh
-sshport
-sshpassword
-vncserver :7901
-curl -k -o /home/$name/Desktop/Bots/OSBot.jar https://osbot.org/mvc/get
-wget -O /home/$name/Desktop/Bots/TRiBot_Loader.jar https://tribot.org/bin/TRiBot_Loader.jar
-wget -O /home/$name/Desktop/Bots/OSBuddy.jar http://cdn.rsbuddy.com/live/f/loader/OSBuddy.jar?x=10
+apt-get install -q -y oracle-java8-installer
+
+#Make java8 default
+apt-get install -q -y oracle-java8-set-default
+
+# Create vnc and ask password
+tightvncserver :7901
+tightvncserver -kill :1#Add config
+wget http://madscripts.me/linuxinstallers/vnc-debian7/xstartup -O ~/.vnc/xstartup
+
+#boot vnc
+tightvncserver :7901
